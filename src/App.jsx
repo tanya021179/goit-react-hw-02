@@ -7,7 +7,12 @@ import Notification from "./components/Notification/Notification";
 const App = () => {
   const [counter, setCounter] = useState(() => {
     const saveData = JSON.parse(localStorage.getItem("counter"));
-    if (saveData?.length) {
+    if (
+      saveData &&
+      saveData.good !== undefined &&
+      saveData.neutral !== undefined &&
+      saveData.bad !== undefined
+    ) {
       return saveData;
     }
     return {
